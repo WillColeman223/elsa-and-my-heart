@@ -7,7 +7,7 @@ export const Footer = () => {
         <div className="mb-8">
           <Heart className="w-8 h-8 text-primary mx-auto mb-4 animate-pulse" />
           <h3 className="text-2xl font-script text-primary mb-2">
-            Elsa & [Your Name]'s Love Story
+            Elsa & Will's Love Story
           </h3>
           <p className="text-muted-foreground">
             A celebration of our journey together
@@ -41,7 +41,7 @@ export const Footer = () => {
 
         <div className="border-t border-border/30 pt-8">
           <p className="text-sm text-muted-foreground">
-            Made with <Heart className="w-4 h-4 inline text-primary animate-pulse" /> by [Your Name]
+            Made with <Heart className="w-4 h-4 inline text-primary animate-pulse" /> by Will
           </p>
           <p className="text-xs text-muted-foreground/70 mt-2">
             © 2025 • Celebrating love every day
