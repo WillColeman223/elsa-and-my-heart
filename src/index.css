@@ -1,42 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Romantic Anniversary Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base colors - soft romantic palette */
+    --background: 350 25% 98%;
+    --foreground: 345 15% 25%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 350 30% 96%;
+    --card-foreground: 345 15% 25%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 350 30% 96%;
+    --popover-foreground: 345 15% 25%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - soft rose pink */
+    --primary: 345 65% 75%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 345 85% 85%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - champagne/cream */
+    --secondary: 45 35% 92%;
+    --secondary-foreground: 345 15% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - light cream */
+    --muted: 40 25% 95%;
+    --muted-foreground: 345 10% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - gold */
+    --accent: 45 65% 75%;
+    --accent-foreground: 345 15% 25%;
+    --accent-gold: 45 85% 65%;
+
+    /* Romance specific colors */
+    --romance-pink: 345 65% 75%;
+    --romance-pink-light: 345 85% 85%;
+    --romance-cream: 45 35% 92%;
+    --romance-gold: 45 85% 65%;
+    --romance-white: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 345 25% 90%;
+    --input: 345 25% 90%;
+    --ring: 345 65% 75%;
 
-    --radius: 0.5rem;
+    /* Gradients */
+    --gradient-romantic: linear-gradient(135deg, hsl(var(--romance-pink-light)), hsl(var(--romance-cream)));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--romance-gold)), hsl(var(--accent)));
+    --gradient-hero: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(252,231,243,0.3));
+
+    /* Shadows */
+    --shadow-romantic: 0 10px 30px -10px hsl(var(--romance-pink) / 0.2);
+    --shadow-soft: 0 4px 20px -4px hsl(var(--romance-pink) / 0.15);
+    --shadow-glow: 0 0 40px hsl(var(--romance-pink-light) / 0.3);
+
+    /* Animations */
+    --transition-romantic: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +129,113 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  /* Typography */
+  .font-script {
+    font-family: 'Dancing Script', cursive;
+  }
+
+  /* Custom animations */
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Heart shape */
+  .heart-shape {
+    position: relative;
+    display: inline-block;
+    transform: rotate(-45deg);
+  }
+
+  .heart-shape::before,
+  .heart-shape::after {
+    content: '';
+    position: absolute;
+    width: 26px;
+    height: 40px;
+    background: currentColor;
+    border-radius: 26px 26px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+  }
+
+  .heart-shape::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+  }
+}
+
+@layer components {
+  /* Button variants */
+  .btn-heart {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105;
+    background: var(--gradient-romantic);
+  }
+
+  .btn-romantic {
+    @apply bg-accent hover:bg-accent/90 text-accent-foreground px-6 py-3 rounded-full shadow-md transition-all duration-300 hover:shadow-lg;
+    background: var(--gradient-gold);
+  }
+
+  /* Timeline styles */
+  .timeline-item {
+    @apply relative pl-8 pb-8;
+  }
+
+  .timeline-item::before {
+    content: '';
+    @apply absolute left-0 top-2 w-4 h-4 rounded-full bg-primary border-4 border-background shadow-md;
+  }
+
+  .timeline-item::after {
+    content: '';
+    @apply absolute left-2 top-6 w-0.5 h-full bg-gradient-to-b from-primary to-primary/20;
+  }
+
+  .timeline-item:last-child::after {
+    display: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }
