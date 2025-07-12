@@ -17,7 +17,7 @@ const timelineEvents: TimelineEvent[] = [
   {
     date: "", 
     title: "Our First Call",
-    description: "Instead of meeting in person, we had our first call. We were both really nervous, but somehow I just knew - you were definitely the one.",
+    description: "We had our first call since we couldn't meet in person. We were both really nervous, but somehow I just knew - you were definitely the one.",
     icon: Calendar
   },
   {
