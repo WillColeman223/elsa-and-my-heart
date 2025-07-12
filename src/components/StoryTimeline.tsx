@@ -9,27 +9,21 @@ interface TimelineEvent {
 
 const timelineEvents: TimelineEvent[] = [
   {
-    date: "March 15, 2023",
+    date: "",
     title: "We First Met",
-    description: "That magical moment when our eyes first met and time seemed to stand still. I knew you were special from the very beginning.",
+    description: "We matched on an app, but honestly, we didn't think much of it at the time. Just another swipe, another match - or so we thought.",
     icon: Heart
   },
   {
-    date: "March 22, 2023", 
-    title: "Our First Date",
-    description: "Coffee turned into dinner, dinner turned into a long walk, and that walk turned into the beginning of our beautiful journey together.",
+    date: "", 
+    title: "Our First Call",
+    description: "Instead of meeting in person, we had our first call. We were both really nervous, but somehow I just knew - you were definitely the one.",
     icon: Calendar
   },
   {
-    date: "May 10, 2023",
-    title: "First 'I Love You'",
-    description: "Under the starlit sky, those three little words changed everything. The moment I knew my heart belonged to you forever.",
-    icon: Star
-  },
-  {
-    date: "July 28, 2023",
+    date: "",
     title: "Our Adventures Together",
-    description: "From spontaneous road trips to quiet movie nights, every moment with you has been an adventure I treasure in my heart.",
+    description: "From all our amazing moments to the memories we're still creating, every day with you is a gift. I can't wait to see you on the 23rd of August!",
     icon: MapPin
   }
 ];
@@ -64,7 +58,7 @@ export const StoryTimeline = () => {
               
               {/* Content */}
               <div className="ml-12 md:ml-20 bg-card border border-border rounded-xl p-6 shadow-soft hover:shadow-romantic transition-all duration-300 hover:transform hover:scale-[1.02]">
-                <div className="text-sm text-accent-gold font-medium mb-2">{event.date}</div>
+                {event.date && <div className="text-sm text-accent-gold font-medium mb-2">{event.date}</div>}
                 <h3 className="text-xl font-semibold text-foreground mb-3">{event.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{event.description}</p>
               </div>
